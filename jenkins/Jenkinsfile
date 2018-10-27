@@ -1,13 +1,11 @@
 node{
-  agent {
-	stages {
-	  stage('Git checkout'){
-        git 'https://github.com/Rassol/Jenkins'
-      }
-      stage('Build') { 
-        steps {
-          sh 'mvn -B -DskipTests clean package' 
-        }
+  stages {
+	stage('Git checkout'){
+      git 'https://github.com/Rassol/Jenkins'
+    }
+    stage('Build') { 
+      steps {
+        sh 'mvn -B -DskipTests clean package' 
       }
     }
   }
