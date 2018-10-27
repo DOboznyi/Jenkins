@@ -1,9 +1,5 @@
 node{
   agent {
-    docker {
-      image 'maven:3-alpine' 
-      args '-v /root/.m2:/root/.m2' 
-    }
 	stages {
 	  stage('Git checkout'){
         git 'https://github.com/Rassol/Jenkins'
