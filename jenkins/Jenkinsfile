@@ -1,12 +1,8 @@
 node{
-  stages {
-	stage('Git checkout'){
-      git 'https://github.com/Rassol/Jenkins'
-    }
-    stage('Build') { 
-      steps {
-        sh 'mvn -B -DskipTests clean package' 
-      }
-    }
+  stage('Git checkout'){
+    git 'https://github.com/Rassol/Jenkins'
+  }
+  stage('Build') { 
+    sh 'mvn -B -DskipTests clean package' 
   }
 }
