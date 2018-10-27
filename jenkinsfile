@@ -1,0 +1,8 @@
+node{
+  stage('Git checkout'){
+    git 'https://github.com/Rassol/Jenkins'
+  }
+  stage('Compile-Package'){
+    sh 'mvnpackage'
+  }
+}
