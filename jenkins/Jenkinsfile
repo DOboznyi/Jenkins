@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Upload'){
             steps {
-                sh 'aws s3 cp `ls target | grep jar` s3://jenkins-test2019829123/'
+                sh 'aws s3 cp target/`ls target | grep jar` s3://jenkins-test2019829123/'
             }
         }
     }
