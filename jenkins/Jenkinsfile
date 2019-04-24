@@ -27,11 +27,10 @@ pipeline {
                              doGenerateSubmoduleConfigurations: false,
                              extensions: [],
                              submoduleCfg: [],
-                             userRemoteConfigs: [[credentialsId: 'ССС', url: 'ЧЧЧ']]
+                             userRemoteConfigs: [[credentialsId: 'github', url: 'git@github.com:Rassol/Jenkins.git']]
                             ]
                     )
                 }
-                script { currentBuild.displayName = "#" + currentBuild.number + "_${VERSION}" + "_${ENV}" }
             }
         }
         stage('Build') { 
