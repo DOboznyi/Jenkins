@@ -15,7 +15,7 @@ pipeline {
         stage('Rename artifact'){
             steps {
                 //sh 'NEWNAME=`date +'%Y_%m_%d_%H_%M_%S_%N'`_`git rev-parse --short HEAD`.jar'
-                //sh 'mv target/java-archive-1.0-SNAPSHOT.jar $NEWNAME'
+                sh 'mv target/java-archive-1.0-SNAPSHOT.jar $NEWNAME'
                 sh 'ls -lah target'
             }
         }
