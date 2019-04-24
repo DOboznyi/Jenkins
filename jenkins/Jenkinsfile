@@ -18,7 +18,6 @@ pipeline {
         stage('Checkout code') {
             steps {
                 echo 'Entering stage \u27A1 code checkout'
-                    }
                 retry(3) {
                     cleanWs()
                     checkout(
