@@ -13,7 +13,7 @@ pipeline {
         buildDiscarder(logRotator(daysToKeepStr: '14', numToKeepStr: '20'))
         ansiColor colorMapName: 'XTerm'
     }
-    agent any
+    agent slave1
     stages {
         stage('Checkout code') {
             steps {
@@ -26,7 +26,7 @@ pipeline {
                              doGenerateSubmoduleConfigurations: false,
                              extensions: [],
                              submoduleCfg: [],
-                             userRemoteConfigs: [[credentialsId: 'github', url: 'git@github.com:Rassol/Jenkins.git']]
+                             userRemoteConfigs: [[credentialsId: 'gitJenkins', url: 'git@github.com:Rassol/Jenkins.git']]
                             ]
                     )
                 }
