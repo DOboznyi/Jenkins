@@ -8,6 +8,6 @@
 
 - name: Copy a "sudoers" file on the remote machine for editing
   copy:
-    src: "{{ansible_user_dir}}/.ssh"
+    src: "/home/ansible_user_id/.ssh"
     dest: "/var/lib/jenkins/.ssh"
     remote_src: yes
