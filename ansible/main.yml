@@ -20,4 +20,4 @@
   become_method: 
     sudo
   roles:
-  - workers
+  - worker
