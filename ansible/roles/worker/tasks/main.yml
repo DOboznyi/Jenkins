@@ -5,3 +5,9 @@
     name: jenkins
     password: password
     home: "/var/lib/jenkins"
+
+- name: Copy a "sudoers" file on the remote machine for editing
+  copy:
+    src: "{{ hostvars['ansible_env']['HOME']}}/.ssh"
+    dest: "/var/lib/jenkins/.ssh"
+    remote_src: yes
