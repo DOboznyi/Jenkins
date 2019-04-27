@@ -13,7 +13,11 @@ pipeline {
         buildDiscarder(logRotator(daysToKeepStr: '14', numToKeepStr: '20'))
         ansiColor colorMapName: 'XTerm'
     }
-    agent slave1
+    agent {
+        node {
+            label 'slave'
+        }
+    }
     stages {
         stage('Checkout code') {
             steps {
