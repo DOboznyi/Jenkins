@@ -1,0 +1,7 @@
+---
+
+- name: Add the user jenkins
+  user:
+    name: jenkins
+    password: password
+    home: "/var/lib/jenkins"

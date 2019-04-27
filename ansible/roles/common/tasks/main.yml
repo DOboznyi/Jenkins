@@ -1,0 +1,12 @@
+---
+
+- name: remove java
+  yum: 
+    name: java
+    state: absent
+
+- name: install java-1.8.0
+  yum: 
+    name: java-1.8.0
+    update_cache: yes
+    state: present

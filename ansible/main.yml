@@ -1,0 +1,23 @@
+- hosts: all
+  become: 
+    true
+  become_method: 
+    sudo
+  roles:
+  - common
+
+- hosts: master
+  become: 
+    true
+  become_method: 
+    sudo
+  roles:
+  - master
+
+- hosts: workers
+  become: 
+    true
+  become_method: 
+    sudo
+  roles:
+  - workers
