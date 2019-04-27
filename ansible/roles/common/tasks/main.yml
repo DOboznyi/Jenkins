@@ -2,7 +2,7 @@
 
 - name: remove java
   yum: 
-    name: java
+    name: java-1.7.0
     state: absent
 
 - name: install java-1.8.0

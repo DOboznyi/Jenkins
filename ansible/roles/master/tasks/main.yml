@@ -3,6 +3,7 @@
 - name: Add repository
   yum_repository:
     name: Jenkins
+    description: Jenkins repo
     baseurl: http://pkg.jenkins.io/redhat
     gpgkey: https://pkg.jenkins.io/redhat/jenkins.io.key
     gpgcheck: yes
