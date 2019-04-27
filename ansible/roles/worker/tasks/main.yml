@@ -5,13 +5,9 @@
     name: jenkins
     password: password
     home: "/var/lib/jenkins"
-  become: 
-    true
-  become_method: 
-    sudo
 
 - name: Set authorized key taken from file
   authorized_key:
-    user: charlie
+    user: jenkins
     state: present
     key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"

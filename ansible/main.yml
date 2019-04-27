@@ -15,5 +15,9 @@
   - master
 
 - hosts: workers
+  become: 
+    true
+  become_method: 
+    sudo
   roles:
   - worker
