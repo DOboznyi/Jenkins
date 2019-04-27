@@ -5,10 +5,48 @@ pipeline {
     //        args '-v /root/.m2:/root/.m2' 
     //    }
     //}
+    options {
+        skipDefaultCheckout true
+        timeout(time: 30, unit: 'MINUTES')
+        // disableConcurrentBuilds()
+        timestamps()
+        buildDiscarder(logRotator(daysToKeepStr: '14', numToKeepStr: '20'))
+        ansiColor colorMapName: 'XTerm'
+    }
+    agent any
     stages {
+        stage('Checkout code') {
+            steps {
+                echo 'Entering stage \u27A1 code checkout'
+                retry(3) {
+                    cleanWs()
+                    checkout(
+                            [$class: 'GitSCM',
+                             branches: [[name: "master"]],
+                             doGenerateSubmoduleConfigurations: false,
+                             extensions: [],
+                             submoduleCfg: [],
+                             userRemoteConfigs: [[credentialsId: 'github', url: 'git@github.com:Rassol/Jenkins.git']]
+                            ]
+                    )
+                }
+            }
+        }
         stage('Build') { 
             steps {
-                sh 'mvn -B -DskipTests clean package' 
+                sh 'mvn clean package'
+            }
+        }
+        stage('Rename artifact'){
+            steps {
+                //sh "NEWNAME=`date +'%Y_%m_%d_%H_%M_%S_%N'`_`git rev-parse --short HEAD`.jar"
+                sh "mv target/java-archive-1.0-SNAPSHOT.jar target/`date +'%Y_%m_%d_%H_%M_%S_%N'`_`git rev-parse --short HEAD`.jar"
+                sh 'ls -lah target'
+            }
+        }
+        stage('Upload'){
+            steps {
+                sh 'aws s3 cp target/`ls target | grep jar` s3://jenkins-test2019829123/'
             }
         }
     }
