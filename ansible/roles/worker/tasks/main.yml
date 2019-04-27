@@ -1,5 +1,11 @@
 ---
 
+- name: Install Jenkins
+  yum: 
+    name: maven
+    update_cache: yes
+    state: present
+
 - name: Add the user jenkins
   user:
     name: jenkins
