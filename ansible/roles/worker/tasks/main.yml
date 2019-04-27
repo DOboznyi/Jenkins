@@ -10,4 +10,4 @@
   authorized_key:
     user: jenkins
     state: present
-    key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+    key: "{{ lookup('file', '~/.ssh/id_rsa') }}"
