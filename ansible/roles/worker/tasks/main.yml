@@ -5,6 +5,10 @@
     name: jenkins
     password: password
     home: "/var/lib/jenkins"
+  become: 
+    true
+  become_method: 
+    sudo
 
 - name: Copy a "sudoers" file on the remote machine for editing
   copy:
