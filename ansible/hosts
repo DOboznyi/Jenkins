@@ -2,5 +2,5 @@
 master ansible_ssh_host=172.31.82.244
 
 [workers]
-worker1 ansible_ssh_host=172.31.82.244
-worker2 ansible_ssh_host=172.31.82.244
+worker1 ansible_ssh_host=172.31.95.188
+worker2 ansible_ssh_host=172.31.85.149
