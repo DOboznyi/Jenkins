@@ -1,11 +1,11 @@
 ---
 
-- name: remove java
+- name: remove java 1.7.0
   yum: 
     name: java-1.7.0
     state: absent
 
-- name: install java-1.8.0
+- name: install java-1.8.0 and git
   yum: 
     name: ['java-1.8.0','git']
     update_cache: yes
